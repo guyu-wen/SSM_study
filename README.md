@@ -1,1 +1,1 @@
-# SS_study
+# SSM_study

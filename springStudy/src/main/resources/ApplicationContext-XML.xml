@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:p="http://www.springframework.org/schema/p" xmlns:c="http://www.springframework.org/schema/c"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/util https://www.springframework.org/schema/util/spring-util.xsd">
+    <!--
+    配置HelloWorld所对应的bean，即将HelloWorld的对象交给Spring的IOC容器管理
+    通过bean标签配置IOC容器所管理的bean
+    属性：
+    id：设置bean的唯一标识
+    class：设置bean所对应类型的全类名
+    -->
+    <bean id="helloworld" class="com.guyu.helloXmlDI.HelloWorld"></bean>
+    <!--
+        <bean id="helloworld2" class="com.guyu.helloXmlDI.HelloWorld"></bean>
+    -->
+
+
+    <bean id="exampleBean" class="com.guyu.helloXmlDI.ExampleBean">
+        <constructor-arg type="int" value="7500000"/>
+        <constructor-arg type="java.lang.String" value="42"/>
+    </bean>
+
+
+    <bean id="Student" class="com.guyu.helloXmlDI.Student">
+<!--普通类赋值  -->
+        <constructor-arg value="10001" name="id"></constructor-arg>
+        <constructor-arg value="谷雨" name="name"></constructor-arg>
+        <!--        <constructor-argctor-arg value="男" name="sex"></constructor-argctor-arg>-->
+        <!--        <constructor-arg name="sex"> <null/></constructor-arg>-->
+        <constructor-arg name="sex"> <null/></constructor-arg>
+
+        <constructor-arg value="1" name="age"></constructor-arg>
+        <!-- 小于号在XML文档中用来定义标签的开始，不能随便使用 -->
+        <!-- 解决方案一：使用XML实体来代替 -->
+        <constructor-arg value="a &lt; b" name="expression"></constructor-arg>
+        <!-- 解决方案二：使用CDATA节 -->
+        <!-- CDATA中的C代表Character，是文本、字符的含义，CDATA就表示纯文本数据 -->
+        <!-- XML解析器看到CDATA节就知道这里是纯文本，就不会当作XML标签或属性来解析 -->
+        <!-- 所以CDATA节中写什么符号都随意 -->
+        <!-- idea快捷键CD -->
+        <constructor-arg name="expression1"> <value><![CDATA[a < b]]></value></constructor-arg>
+<!--        为类类型属性赋值-->
+        <property name="clazz" ref="clazzOne"></property>
+
+    </bean>
+
+    <bean id="clazzOne" class="com.guyu.helloXmlDI.Clazz">
+        <property name="clazzId" value="1904"></property>
+        <property name="className" value="1904班"></property>
+    </bean>
+
+    <bean id="StudentOne" class="com.guyu.helloXmlDI.Student">
+        <!--普通类赋值  -->
+        <constructor-arg value="10001" name="id"></constructor-arg>
+        <constructor-arg value="谷雨" name="name"></constructor-arg>
+        <!--        <constructor-argctor-arg value="男" name="sex"></constructor-argctor-arg>-->
+        <!--        <constructor-arg name="sex"> <null/></constructor-arg>-->
+        <constructor-arg name="sex"> <null/></constructor-arg>
+
+        <constructor-arg value="1" name="age"></constructor-arg>
+        <!-- 小于号在XML文档中用来定义标签的开始，不能随便使用 -->
+        <!-- 解决方案一：使用XML实体来代替 -->
+        <constructor-arg value="a &lt; b" name="expression"></constructor-arg>
+        <!-- 解决方案二：使用CDATA节 -->
+        <!-- CDATA中的C代表Character，是文本、字符的含义，CDATA就表示纯文本数据 -->
+        <!-- XML解析器看到CDATA节就知道这里是纯文本，就不会当作XML标签或属性来解析 -->
+        <!-- 所以CDATA节中写什么符号都随意 -->
+        <!-- idea快捷键CD -->
+        <constructor-arg name="expression1"> <value><![CDATA[a < b]]></value></constructor-arg>
+        <!--        为类类型属性赋值-->
+        <property name="clazz">
+            <bean name="clazzInner" class="com.guyu.helloXmlDI.Clazz">
+                <property name="clazzId" value="1908"></property>
+                <property name="className" value="1908班"></property>
+            </bean>
+        </property>
+    </bean>
+
+    <bean id="StudentTwo" class="com.guyu.helloXmlDI.Student">
+        <!--普通类赋值  -->
+        <constructor-arg value="10001" name="id"></constructor-arg>
+        <constructor-arg value="谷雨" name="name"></constructor-arg>
+        <!--        <constructor-argctor-arg value="男" name="sex"></constructor-argctor-arg>-->
+        <!--        <constructor-arg name="sex"> <null/></constructor-arg>-->
+        <constructor-arg name="sex"> <null/></constructor-arg>
+
+        <constructor-arg value="1" name="age"></constructor-arg>
+        <!-- 小于号在XML文档中用来定义标签的开始，不能随便使用 -->
+        <!-- 解决方案一：使用XML实体来代替 -->
+        <constructor-arg value="a &lt; b" name="expression"></constructor-arg>
+        <!-- 解决方案二：使用CDATA节 -->
+        <!-- CDATA中的C代表Character，是文本、字符的含义，CDATA就表示纯文本数据 -->
+        <!-- XML解析器看到CDATA节就知道这里是纯文本，就不会当作XML标签或属性来解析 -->
+        <!-- 所以CDATA节中写什么符号都随意 -->
+        <!-- idea快捷键CD -->
+        <constructor-arg name="expression1"> <value><![CDATA[a < b]]></value></constructor-arg>
+        <!--        为类类型属性赋值-->
+        <!-- 一定先引用某个bean为属性赋值，才可以使用级联方式更新属性 -->
+        <property name="clazz" ref="clazzOne"></property>
+        <property name="clazz.className" value="2222班"></property>
+    </bean>
+
+    <bean id="StudentThree" class="com.guyu.helloXmlDI.Student">
+        <!--普通类赋值  -->
+        <constructor-arg value="10001" name="id"></constructor-arg>
+        <constructor-arg value="谷雨" name="name"></constructor-arg>
+        <!--        <constructor-argctor-arg value="男" name="sex"></constructor-argctor-arg>-->
+        <!--        <constructor-arg name="sex"> <null/></constructor-arg>-->
+        <constructor-arg name="sex"> <null/></constructor-arg>
+
+        <constructor-arg value="1" name="age"></constructor-arg>
+        <!-- 小于号在XML文档中用来定义标签的开始，不能随便使用 -->
+        <!-- 解决方案一：使用XML实体来代替 -->
+        <constructor-arg value="a &lt; b" name="expression"></constructor-arg>
+        <!-- 解决方案二：使用CDATA节 -->
+        <!-- CDATA中的C代表Character，是文本、字符的含义，CDATA就表示纯文本数据 -->
+        <!-- XML解析器看到CDATA节就知道这里是纯文本，就不会当作XML标签或属性来解析 -->
+        <!-- 所以CDATA节中写什么符号都随意 -->
+        <!-- idea快捷键CD -->
+        <constructor-arg name="expression1"> <value><![CDATA[a < b]]></value></constructor-arg>
+        <!--        为类类型属性赋值-->
+        <!-- 一定先引用某个bean为属性赋值，才可以使用级联方式更新属性 -->
+        <property name="clazz" ref="clazzOne"></property>
+        <property name="clazz.className" value="2222班"></property>
+
+        <property name="hobbies" >
+            <array>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </array>
+        </property>
+    </bean>
+
+    <bean id="clazzTwo" class="com.guyu.helloXmlDI.Clazz">
+        <property name="clazzId" value="1904"></property>
+        <property name="className" value="1904班"></property>
+<!--        注意：若为Set集合类型属性赋值，只需要将其中的list标签改为set标签即可-->
+        <property name="students">
+<!--            <list>-->
+<!--                <ref bean="StudentOne"></ref>-->
+<!--            </list>-->
+            <util:list id="students">
+                <ref bean="StudentOne"></ref>
+                <ref bean="StudentThree"></ref>
+            </util:list>
+        </property>
+        <property name="teacherMap">
+<!--                <map>-->
+<!--                   <description>教师map</description>-->
+<!--                    <entry>-->
+<!--                        <key><value>10001</value></key>-->
+<!--                        <ref bean="thacherOne"></ref>-->
+<!--                    </entry>-->
+<!--                    <entry>-->
+<!--                        <key><value>10002</value></key>-->
+<!--                        <ref bean="thacherTwo"></ref>-->
+<!--                    </entry>-->
+<!--                </map>-->
+            <util:map id="teacherMap">
+                <entry>
+                    <key>
+                        <value>1001</value>
+                    </key>
+                    <ref bean="thacherOne"></ref>
+                </entry>
+                <entry>
+                    <key>
+                        <value>1002</value>
+                    </key>
+                    <ref bean="thacherTwo"></ref>
+                </entry>
+            </util:map>
+        </property>
+
+
+    </bean>
+
+
+
+    <bean id="thacherOne" class="com.guyu.helloXmlDI.Teacher">
+        <property name="teacherId" value="1001"></property>
+        <property name="teacherName" value="深田永美"></property>
+    </bean>
+
+    <bean id="thacherTwo" class="com.guyu.helloXmlDI.Teacher">
+        <property name="teacherId" value="1002"></property>
+        <property name="teacherName" value="周淑怡"></property>
+    </bean>
+
+
+    <bean id="studentFour" class="com.guyu.helloXmlDI.Student">
+        <property name="id" value="1004"></property>
+        <property name="name" value="王五"></property>
+        <property name="age" value="26"></property>
+        <property name="sex" value="女"></property>
+        <property name="hobbies">
+            <list>
+                <value>抽烟</value>
+                <value>喝酒</value>
+                <value>烫头</value>
+            </list>
+        </property>
+        <property name="teacherMap">
+            <map>
+                <entry>
+                    <key><value>1001</value></key>
+                    <ref bean="thacherOne"></ref>
+                </entry>
+                <entry>
+                    <key><value>1002</value></key>
+                    <ref bean="thacherTwo"></ref>
+                </entry>
+            </map>
+        </property>
+    </bean>
+
+    <bean id="teacherThree" class="com.guyu.helloXmlDI.Teacher"
+          p:teacherId="1003" p:teacherName="三上悠亚">
+    </bean>
+
+    <!--C(构造: Constructor)命名空间 , 属性依然要设置set方法-->
+    <!--xmlns:c="http://www.springframework.org/schema/c"-->
+    <bean id="teacherFour" class="com.guyu.helloXmlDI.Teacher"
+          c:teacherId="1004" c:teacherName="饭岛爱">
+    </bean>
+
+</beans>

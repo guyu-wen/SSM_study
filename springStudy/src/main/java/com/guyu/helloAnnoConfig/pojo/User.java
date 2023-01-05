@@ -3,7 +3,7 @@ package com.guyu.helloAnnoConfig.pojo;
 import org.springframework.beans.factory.annotation.Value;
 
 /**
- * @author      : wenhaojie
+ * @author      : guyu
  * @date        : 2023/1/5 21:20
  * @description : some description
  */

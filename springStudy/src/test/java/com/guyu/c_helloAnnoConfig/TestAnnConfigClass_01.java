@@ -13,7 +13,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import javax.sql.DataSource;
 
 /**
- * @author : wenhaojie，
+ * @author : guyu，
  * @date : 2023/1/5 21:08
  * @description : 注解配置
  */
@@ -25,7 +25,7 @@ public class TestAnnConfigClass_01 {
      * 并用于构建bean定义，初始化Spring容器。
      * @Configuration 这个也会被Spring容器托管 注册到容器中 因为它本来就是一个@Component
      * ·@Configuration 代表这是一个配置类，就和之前的xml配置文件一样
-     * @author: wenhaojie
+     * @author: guyu
      * @date: 2023/1/5 21:12
      **/
     @Test
@@ -39,7 +39,7 @@ public class TestAnnConfigClass_01 {
     /**
      * @description: @Bean的作用 将这个类或者方法注册到spring IoC容器中，
      *              这个配置就等同于之前在xml里的配置
-     * @author: wenhaojie
+     * @author: guyu
      * @date: 2023/1/5 21:10
      **/
     @Test
@@ -53,7 +53,7 @@ public class TestAnnConfigClass_01 {
      *     如果你有个类用@Controller注解标识了，那么配置类不加上@ComponentScan指定包，
      *     无法自动扫描该controller，那么该Controller就不会被spring扫描到，
      *     更不会装入spring容器中，因此你配置的这个Controller也没有意义
-     * @author: wenhaojie
+     * @author: guyu
      * @date: 2023/1/5 21:18
      **/
     @Test
@@ -67,7 +67,7 @@ public class TestAnnConfigClass_01 {
     /**
      * @description:  @Import的作用
      *                  传入其他自定义配置类
-     * @author: wenhaojie
+     * @author: guyu
      * @date: 2023/1/5 21:40
      **/
     @Test
@@ -80,7 +80,7 @@ public class TestAnnConfigClass_01 {
 
     /**
      * @description:  @PropertySource("mysql.properties")
-     * @author: wenhaojie
+     * @author: guyu
      * @date: 2023/1/5 21:40
      **/
     @Test

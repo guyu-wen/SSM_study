@@ -4,7 +4,7 @@ import com.guyu.helloAnnoDI.dao.UserDao;
 import org.springframework.stereotype.Repository;
 
 /**
- * @author : wenhaojie
+ * @author : guyu
  * @date : 2023/1/5 8:57
  * @description : some description
  */

@@ -13,7 +13,7 @@ class B_TestDIGetBeanByAnno {
 
     /**
      * @description: 最基本的注解扫描方式
-     * @author: wenhaojie
+     * @author: guyu
      * @date: 2023/1/4 23:15
      * @param:
      * @return:

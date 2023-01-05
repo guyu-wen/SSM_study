@@ -1,7 +1,7 @@
 package com.guyu.helloXmlDI;
 
 /**
- * @author      : wenhaojie
+ * @author      : guyu
  * @date        : 2023/1/2 22:32
  * @description : some description
  */

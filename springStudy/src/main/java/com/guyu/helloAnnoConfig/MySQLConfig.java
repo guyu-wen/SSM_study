@@ -7,7 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 
 /**
- * @author      : wenhaojie
+ * @author      : guyu
  * @date        : 2023/1/5 21:53
  * @description : some description
  */

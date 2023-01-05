@@ -9,7 +9,7 @@ class TestDIGetBeanByXML_01 {
     @Test
     /** 依赖geter、seter注入
      * @description: 获取bean的三种方式
-     * @author: wenhaojie
+     * @author: guyu
      * @date: 2023/1/3 11:16
      **/
     void testDIGetter() {
@@ -44,7 +44,7 @@ class TestDIGetBeanByXML_01 {
 
     /**
      * @description: 依赖构造器注入
-     * @author: wenhaojie
+     * @author: guyu
      * @date: 2023/1/3 11:18
      **/
     @Test
@@ -56,7 +56,7 @@ class TestDIGetBeanByXML_01 {
 
     /**
      * @description: 特殊值依赖注入
-     * @author: wenhaojie
+     * @author: guyu
      * @date: 2023/1/3 11:18
      **/
     @Test
